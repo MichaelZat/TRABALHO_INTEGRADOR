@@ -1,9 +1,12 @@
+
+
 CREATE TABLE paciente (
     id_paciente BIGSERIAL PRIMARY KEY,
     nome VARCHAR(150) NOT NULL,
     cpf VARCHAR(14) NOT NULL UNIQUE,
     data_nascimento DATE,
     criado_em TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP
+    id_convenio BIGINT NOT NULL,
 );
 
 CREATE TABLE convenio (
@@ -28,6 +31,10 @@ CREATE TABLE cobranca (
     CONSTRAINT fk_cobranca_paciente
         FOREIGN KEY (id_paciente)
         REFERENCES paciente (id_paciente),
+
+	CONSTRAINT fk_paciente_convenio
+        FOREIGN KEY (id_convenio)
+		REFERENCES convenio (id_convenio);
 
     CONSTRAINT fk_cobranca_convenio
         FOREIGN KEY (id_convenio)
@@ -119,79 +126,17 @@ INSERT INTO convenio (nome, percentual_cobertura_plano, ativo) VALUES
 ('Particular', 0.00, TRUE),
 ('Convenio Empresarial', 50.00, TRUE);
 
-INSERT INTO cobranca (
-    id_paciente,
-    id_convenio,
-    data_cobranca,
-    status,
-    valor_bruto,
-    valor_desconto,
-    valor_coberto_convenio,
-    valor_liquido
-) VALUES
-(1, 1, '2026-06-01', 'aberta', 350.00, 0.00, 245.00, 105.00),
-(2, 2, '2026-06-02', 'paga', 500.00, 50.00, 400.00, 50.00),
-(3, 4, '2026-06-03', 'aberta', 220.00, 20.00, 0.00, 200.00),
-(4, 3, '2026-06-04', 'recusada', 180.00, 0.00, 108.00, 72.00),
-(5, 5, '2026-06-05', 'cancelada', 600.00, 0.00, 300.00, 300.00);
-
-INSERT INTO cobranca_item (
-    id_cobranca,
-    tipo_servico,
-    id_origem,
-    descricao,
-    quantidade,
-    valor_unitario
-) VALUES
-(1, 'consulta', 101, 'Consulta clinica geral', 1, 200.00),
-(1, 'medicamento', 301, 'Medicamento Dipirona 500mg', 3, 50.00),
-
-(2, 'consulta', 102, 'Consulta cardiologica', 1, 300.00),
-(2, 'exame', 201, 'Exame de sangue completo', 1, 200.00),
-
-(3, 'consulta', 103, 'Consulta ortopedica particular', 1, 220.00),
-
-(4, 'exame', 202, 'Raio-X do torax', 1, 180.00),
-
-(5, 'consulta', 104, 'Consulta neurologica', 1, 400.00),
-(5, 'medicamento', 302, 'Medicamento antibiotico', 2, 100.00);
-
-INSERT INTO pagamento (
-    id_cobranca,
-    valor_pago,
-    forma_pagamento,
-    status
-) VALUES
-(1, 0.00, 'boleto', 'pendente'),
-(2, 50.00, 'pix', 'paga'),
-(3, 0.00, 'cartao', 'pendente'),
-(4, 0.00, 'convenio', 'recusada'),
-(5, 0.00, 'dinheiro', 'cancelada');
-
-
 --Criação de 1 View que deve ser utilizada pelo sistema 
 CREATE VIEW cobranca_detalhada AS
 SELECT
-    c.id_cobranca,  
-    p.nome AS nome_paciente,
-    c.data_cobranca,
-    c.status AS status_cobranca,
-    c.valor_bruto,
-    c.valor_desconto,   
-    c.valor_coberto_convenio,
-    c.valor_liquido,
-    co.nome AS nome_convenio,
+    ci.id_cobranca_item,
+    ci.id_cobranca,
     ci.tipo_servico,
-    ci.descricao AS descricao_item,
+    ci.descricao               AS descricao_item,
     ci.quantidade,
     ci.valor_unitario,
-    (ci.quantidade * ci.valor_unitario) AS valor_total_item
-FROM
-    cobranca c
-JOIN paciente p ON c.id_paciente = p.id_paciente
-LEFT JOIN convenio co ON c.id_convenio = co.id_convenio
-JOIN cobranca_item ci ON c.id_cobranca = ci.id_cobranca; 
-
+    ci.quantidade * ci.valor_unitario AS valor_total_item
+FROM cobranca_item ci;
 select * from cobranca_detalhada
 
 --Criação de 1 Stored Procedure que deve ser utilizada pelo sistema 
@@ -229,4 +174,11 @@ AFTER INSERT OR UPDATE OF status
 ON pagamento
 FOR EACH ROW
 EXECUTE FUNCTION fn_atualizar_status_cobranca();
+
+
+select * from
+select * from
+select * from
+select * from
+
 
