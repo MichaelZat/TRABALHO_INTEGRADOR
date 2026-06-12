@@ -9,7 +9,7 @@ async function alterar(req, res) {
         return res.status(400).json({ mensagem: 'Status inválido' });
     }
 
-    // Atualizar status do pagamento — trigger do banco atualiza cobranca.status automaticamente
+    
     const dados = await Pagamento.update(
         { status },
         { where: { id_pagamento } }
