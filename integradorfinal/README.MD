@@ -7,6 +7,7 @@ Este projeto faz parte do Projeto Integrador 2026 do curso de Sistemas de Inform
 O módulo desenvolvido é o G10 - Faturamento, responsável pelas cobranças financeiras geradas a partir de atendimentos realizados no sistema.
 
 Link do github do projeto: https://github.com/MichaelZat/TRABALHO_INTEGRADOR
+
 Link da api de faturamento: https://github.com/MichaelZat/API-INTEGRADOR-01-2026
 
 O sistema permite:
