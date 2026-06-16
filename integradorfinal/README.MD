@@ -26,7 +26,6 @@ O sistema permite:
 
 ### Consome dados de:
 
-- **G4 - Consultas:** consultas realizadas e seus itens.
 - **G9 - Convênios:** regras de cobertura.
 
 ### Fornece dados para:
