@@ -1,0 +1,245 @@
+-- Backlog do Produto
+
+- Requisitos Funcionais
+
+* RF01 - Geração de Cobrança
+* RF02 - Registro de Pagamento
+* RF03 - Auditoria de Transações
+* RF04 - Consulta Consolidada
+* RF05 - Cancelamento de Cobrança
+* RF06 - Consulta de Histórico Financeiro
+* RF07 - Integração com o Módulo G9
+* RF08 - Emissão de Relatórios Financeiros
+* RF09 - Consulta Individual de Cobrança
+* RF10 - Reabertura de Cobrança
+* RF11 - Dashboard Financeiro
+
+- Requisitos Não Funcionais
+
+* RNF01 - Desempenho
+* RNF02 - Interoperabilidade REST
+* RNF03 - Auditabilidade
+* RNF04 - Disponibilidade
+* RNF05 - Escalabilidade
+* RNF06 - Confiabilidade
+* RNF07 - Recuperação de Desastres
+* RNF08 - Backup
+* RNF09 - Monitoramento
+
+---
+
+- Sprint 1 – Levantamento, Planejamento e Banco de Dados
+
+Épico: Definição do Produto
+
+História:
+Como equipe de desenvolvimento, queremos definir os requisitos do sistema para garantir uma implementação consistente.
+
+Tarefas:
+
+* Levantamento dos RFs
+* Levantamento dos RNFs
+* Definição da arquitetura
+* Elaboração dos casos de uso
+* Planejamento das sprints
+* Criação da documentação inicial
+
+Épico: Modelagem de Dados
+
+História:
+Como sistema, preciso armazenar informações financeiras de forma estruturada e segura.
+
+Tarefas:
+
+* Modelagem conceitual
+* Modelo lógico
+* Diagrama ER
+* Definição das tabelas
+* Chaves primárias e estrangeiras
+* Scripts SQL
+* Dados de teste
+* Validação da integridade dos dados
+
+---
+
+- Sprint 2 – Desenvolvimento Back-End
+
+Épico: Serviços Financeiros
+
+História:
+Como usuário, quero registrar e consultar cobranças para controlar o faturamento.
+
+Tarefas:
+
+* Configuração do Node.js
+* Estruturação da arquitetura do projeto
+* Conexão com banco de dados
+* Desenvolvimento dos models
+* Implementação do RF01
+* Implementação do RF02
+* Implementação do RF05
+* Implementação do RF09
+* Implementação do RF10
+* Validações de entrada
+* Tratamento de exceções
+* Testes no Insomnia
+
+Épico: Auditoria
+
+História:
+Como administrador, quero acompanhar todas as movimentações financeiras realizadas.
+
+Tarefas:
+
+* Implementação do RF03
+* Registro de logs
+* Histórico de alterações
+* Controle de auditoria
+
+---
+
+- Sprint 3 – Desenvolvimento Front-End
+
+Épico: Interface Financeira
+
+História:
+Como usuário, quero acessar as funcionalidades financeiras através de uma interface intuitiva.
+
+Tarefas:
+
+* Configuração do React
+* Desenvolvimento do layout
+* Criação das telas
+* Formulários de cadastro
+* Consulta individual (RF09)
+* Consulta consolidada (RF04)
+* Histórico financeiro (RF06)
+* Relatórios financeiros (RF08)
+* Dashboard financeiro (RF11)
+* Tratamento de erros
+
+---
+
+- Sprint 4 – Integração e Finalização
+
+Épico: Integração Externa
+
+História:
+Como usuário, quero visualizar informações provenientes de sistemas parceiros.
+
+Tarefas:
+
+* Estudo da API do G9
+* Análise da documentação
+* Consumo dos endpoints
+* Integração do RF07
+* Tratamento de falhas
+* Testes de integração
+
+Épico: Entrega Final
+
+História:
+Como equipe, queremos disponibilizar um sistema estável e documentado.
+
+Tarefas:
+
+* Testes finais
+* Correção de bugs
+* Revisão da documentação
+* Preparação da apresentação
+* Entrega final
+
+-- Retrospectivas das Sprints
+
+- Sprint 1 – Levantamento, Planejamento e Banco de Dados
+
+O que foi bem
+
+* A equipe conseguiu definir os requisitos funcionais e não funcionais do sistema.
+* Houve uma divisão equilibrada das atividades entre os integrantes.
+* A modelagem conceitual e lógica do banco foi concluída com sucesso.
+* O diagrama ER permitiu visualizar adequadamente a estrutura dos dados.
+* A arquitetura inicial do sistema foi definida, facilitando as etapas seguintes.
+
+O que foi mal
+
+* O início das atividades demorou mais do que o esperado.
+* Algumas decisões técnicas levaram mais tempo para serem tomadas.
+* O desenvolvimento de views, stored procedures e triggers ficou atrasado em relação ao cronograma inicial.
+
+Ações de melhoria
+
+* Definir prazos internos menores para cada entrega.
+* Realizar reuniões rápidas de acompanhamento durante a sprint.
+* Iniciar atividades de banco de dados paralelamente ao levantamento de requisitos quando possível.
+
+---
+
+- Sprint 2 – Desenvolvimento Back-End
+
+O que foi bem
+
+* Os endpoints REST foram implementados e testados com sucesso.
+* As regras de negócio do sistema financeiro foram desenvolvidas conforme os requisitos.
+* Os testes realizados no Insomnia demonstraram o funcionamento correto da API.
+* A estrutura do projeto ficou organizada e preparada para futuras integrações.
+
+O que foi mal
+
+* Houve dependência das entregas da sprint anterior.
+* Foi necessário desenvolver uma API de testes para simular a integração com o módulo de convênios.
+* Algumas funcionalidades precisaram ser ajustadas devido a mudanças identificadas durante o desenvolvimento.
+
+Ações de melhoria
+
+* Criar ambientes de teste e mocks logo no início do projeto.
+* Planejar integrações externas com maior antecedência.
+* Realizar validações frequentes dos requisitos durante o desenvolvimento.
+
+---
+
+- Sprint 3 – Desenvolvimento Front-End
+
+O que foi bem
+
+* A comunicação entre Front-End e Back-End ocorreu corretamente.
+* As telas foram desenvolvidas de forma funcional e intuitiva.
+* Os formulários de cadastro, consulta e edição foram implementados com sucesso.
+* O sistema apresentou boa navegabilidade para os usuários.
+
+O que foi mal
+
+* Houve dificuldade em alinhar o desenvolvimento da interface com a futura integração externa.
+* Algumas adaptações precisaram ser realizadas após testes com dados reais.
+* O planejamento visual das funcionalidades integradas poderia ter sido definido mais cedo.
+
+Ações de melhoria
+
+* Definir contratos de API antes do desenvolvimento das telas.
+* Produzir protótipos mais detalhados antes da implementação.
+* Realizar testes integrados desde as primeiras versões da interface.
+
+---
+
+- Sprint 4 – Integração e Finalização
+
+O que foi bem
+
+* A integração com a API de testes foi concluída com sucesso.
+* O sistema foi entregue dentro do prazo estipulado.
+* Os principais bugs encontrados durante os testes foram corrigidos.
+* A documentação técnica e os artefatos do projeto foram finalizados.
+* A equipe conseguiu preparar a apresentação final adequadamente.
+
+O que foi mal
+
+* A integração com a API oficial do grupo G9 não pôde ser concluída devido à indisponibilidade dos serviços dentro do prazo.
+* Houve acúmulo de tarefas de documentação próximo à entrega final.
+* A organização das atividades finais poderia ter sido melhor distribuída.
+
+Ações de melhoria
+
+* Solicitar documentação e endpoints externos com maior antecedência.
+* Distribuir as atividades de documentação ao longo de todas as sprints.
+* Criar checkpoints de integração periódicos entre as equipes.
+* Centralizar o acompanhamento das tarefas finais para evitar sobrecarga.
