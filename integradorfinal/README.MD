@@ -92,6 +92,52 @@ backapi/
   index.js
   Banco.js
 
+---
+## 8. Principais Rotas da Aplicação
+### Pacientes
+| Método | Rota | Descrição |
+|---|---|---|
+| GET | `/paciente` | Lista pacientes |
+| GET | `/paciente/:id` | Busca paciente por ID |
+| POST | `/paciente` | Cadastra paciente |
+| PUT | `/paciente/:id` | Atualiza paciente |
+| DELETE | `/paciente/:id` | Remove paciente |
+---
+### Convênios
+| Método | Rota | Descrição |
+|---|---|---|
+| GET | `/convenio` | Lista convênios |
+| GET | `/convenio/:id_convenio` | Busca convênio por ID |
+| POST | `/convenio` | Cadastra convênio |
+| PUT | `/convenio/:id_convenio` | Atualiza convênio |
+| DELETE | `/convenio/:id_convenio` | Remove convênio |
+---
+### Consultas
+| Método | Rota | Descrição |
+|---|---|---|
+| GET | `/consulta` | Lista consultas |
+| GET | `/consulta/realizadas` | Lista consultas realizadas sem cobrança |
+| GET | `/consulta/:id` | Busca consulta por ID |
+| POST | `/consulta` | Cadastra consulta |
+| PUT | `/consulta/:id` | Atualiza status ou observações |
+| POST | `/consulta/:id/item` | Adiciona item à consulta |
+| DELETE | `/consulta/:id/item/:id_item` | Remove item da consulta |
+---
+### Cobranças
+| Método | Rota | Descrição |
+|---|---|---|
+| GET | `/cobranca` | Lista cobranças |
+| GET | `/cobranca?id_paciente=&data_inicio=&data_fim=&tipo_servico=` | Lista cobranças com filtros |
+| GET | `/cobranca/:id` | Busca cobrança detalhada |
+| POST | `/cobranca` | Gera nova cobrança |
+| PUT | `/cobranca/:id/aprovar` | Aprova cobrança e cria pagamento pendente |
+| GET | `/cobranca/aguardando` | Lista cobranças aguardando pagamento |
+---
+### Pagamentos
+| Método | Rota | Descrição |
+|---|---|---|
+| PUT | `/pagamento/:id_pagamento` | Atualiza status do pagamento |
+---
 
 ## Pré-requisitos
 
