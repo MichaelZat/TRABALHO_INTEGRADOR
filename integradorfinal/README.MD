@@ -143,10 +143,10 @@ backapi/
 
 Antes de rodar o projeto, é necessário ter instalado:
 
-Node.js
-npm
-PostgreSQL
-Git
+Node.js.
+npm.
+PostgreSQL.
+Git.
 
 ## Rodar o Backend 
 cd backend
