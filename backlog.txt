@@ -82,7 +82,6 @@ Tarefas:
 * Implementação do RF10
 * Validações de entrada
 * Tratamento de exceções
-* Testes no Insomnia
 
 Épico: Auditoria
 
